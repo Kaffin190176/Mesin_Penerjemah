@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Virtual Keyboard</title>
+  <style>
+    .keyboard-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+    }
+    .keyboard-key {
+      width: 50px;
+      height: 50px;
+      margin: 5px;
+      text-align: center;
+      line-height: 50px;
+      background-color: cyan;
+      border: 1px solid white;
+      cursor: pointer;
+    }
+  </style>
+</head>
+<body>
+  <div class="keyboard-container">
+    <div class="keyboard-key" onclick="sendInput('Q')">Q</div>
+    <div class="keyboard-key" onclick="sendInput('W')">W</div>
+    <div class="keyboard-key" onclick="sendInput('W')">E</div>
+    <div class="keyboard-key" onclick="sendInput('E')">R</div>
+    <!-- Tambahkan tombol untuk huruf lainnya sesuai kebutuhan -->
+    <!-- Contoh: <div class="keyboard-key" onclick="sendInput('W')">W</div> -->
+  </div>
+
+  <script>
+    // Fungsi untuk mengirim input ke aplikasi Streamlit
+    function sendInput(letter) {
+      const inputElement = parent.document.querySelector("input[data-testid='stTextInput']");
+      inputElement.value += letter;
+      inputElement.dispatchEvent(new Event('input'));
+    }
+  </script>
+</body>
+</html>
